@@ -49,7 +49,7 @@ node {
         }
         
         stage('Stop and remove old container') {
-            // sh 'docker stop shield_ui && docker rm shield_ui'
+            sh 'docker stop xp-react && docker rm xp-react'
         }
 
         stage('Run Container') {
