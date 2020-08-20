@@ -11,11 +11,8 @@ node {
             }
         }
         
-        stage('Java Version') {
+        stage('Java/Docker Version') {
             sh "java -version"
-        }
-        
-        stage('Java Version') {
             sh "docker -v"
         }
         
@@ -28,6 +25,20 @@ node {
         stage('Build Project') {
             dir('xp') {
                 sh "yarn build"
+            }
+        }
+
+        stage('Package Build') {
+            dir('xp') {
+                sh "tar -zcvf build.tar.gz build/"
+            }
+        }
+
+        stage('Artifacts Creation') {
+            dir('xp') {
+                fingerprint 'build.tar.gz'
+                archiveArtifacts 'build.tar.gz'
+                echo "Artifact stored"
             }
         }
 
