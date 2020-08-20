@@ -43,7 +43,9 @@ node {
         }
 
         stage('Build new docker image') {
-            sh 'docker image build -t xp/xp-react:latest .'
+            dir('xp') {
+                sh 'docker image build -t xp/xp-react:latest .'
+            }
         }
         
         stage('Stop and remove old container') {
