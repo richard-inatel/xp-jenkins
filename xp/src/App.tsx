@@ -8,7 +8,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Welcome to XP about Jenkins v2
+          Welcome to XP about Jenkins v3 16:50h
         </p>
       </header>
     </div>
